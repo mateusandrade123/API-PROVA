@@ -44,14 +44,15 @@ export function diaSemana(dia) {
     return msg;
 }
 
-export function sequencia(limite) {
-    for (let i = 0; i <= limite; i++) {
-        if (i % 0) {
-            console.log(i);
-        }
-    }
-    return (i);
-}
+export function sequencia(limite){
+    let n = []
+   let num = 0
+   for(let i = 0; i <= limite; i++){
+   n[i] = num * 2
+   num ++
+   }
+   return n
+   }
 
 export function calculo(num) {
     let soma = 3;
