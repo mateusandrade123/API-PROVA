@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { semaforo, diaSemana, sequencia } from './services.js';
+import { semaforo, diaSemana, sequencia, calculo } from './services.js';
 const server = Router();
 
 server.get('/semaforo/:cor', (req, resp) => {
@@ -46,6 +46,23 @@ server.post('/sequencia', (req, resp) => {
         resp.status(404).send({
             erro: err.message
         })
+    }
+})
+
+server.post('/calculo', (req, resp) => {
+    try {
+        const num = req.query.num;
+
+        const x = calculo(num)
+
+        resp.send({
+            calculo: x
+        });
+    }
+    catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        });
     }
 })
 
